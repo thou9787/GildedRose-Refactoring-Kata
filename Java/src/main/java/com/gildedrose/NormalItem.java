@@ -8,8 +8,6 @@ public class NormalItem extends Item {
     protected void update() {
         this.sellIn = this.sellIn - 1;
         decreaseQuality();
-        if (this.sellIn < 0) {
-            decreaseQuality();
-        }
+        if (this.sellIn < 0) decreaseQuality();
     }
 }

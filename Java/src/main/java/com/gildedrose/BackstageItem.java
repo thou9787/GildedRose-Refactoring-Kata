@@ -8,14 +8,8 @@ public class BackstageItem extends Item {
     protected void update() {
         this.sellIn = this.sellIn - 1;
         increaseQuality();
-        if (this.sellIn < 10) {
-            increaseQuality();
-        }
-        if (this.sellIn < 5) {
-            increaseQuality();
-        }
-        if (this.sellIn < 0) {
-            this.quality = 0;
-        }
+        if (this.sellIn < 10) increaseQuality();
+        if (this.sellIn < 5) increaseQuality();
+        if (this.sellIn < 0) this.quality = 0;
     }
 }
