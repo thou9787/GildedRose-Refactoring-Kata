@@ -19,6 +19,8 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
+    protected void update() {}
+
     protected void increaseQuality() {
         if (quality < 50) {
             quality = quality + 1;
