@@ -57,6 +57,16 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void conjured_item_with_quality_decrease_by_twice() {
+        Item[] items = new Item[]{new ConjuredItem("Conjured", 1, 40)};
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(38, app.items[0].quality);
+    }
+
+    @Test
     public void aged_brie_increase_quality_when_it_gets_older() {
         Item[] items = new Item[]{new AgedBrieItem("Aged Brie", 1, 40)};
         GildedRose app = new GildedRose(items);
