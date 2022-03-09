@@ -14,30 +14,42 @@ class GildedRose {
             }
 
             if (item.name.equals("Aged Brie")) {
-                item.sellIn = item.sellIn - 1;
-                increaseQuality(item);
-                if (item.sellIn < 0) {
-                    increaseQuality(item);
-                }
+                updateAgedBrieItem(item);
             } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                item.sellIn = item.sellIn - 1;
-                increaseQuality(item);
-                if (item.sellIn < 10) {
-                    increaseQuality(item);
-                }
-                if (item.sellIn < 5) {
-                    increaseQuality(item);
-                }
-                if (item.sellIn < 0) {
-                    item.quality = 0;
-                }
+                updateBackstageItem(item);
             } else {
-                item.sellIn = item.sellIn - 1;
-                decreaseQuality(item);
-                if (item.sellIn < 0) {
-                    decreaseQuality(item);
-                }
+                updateNormalItem(item);
             }
+        }
+    }
+
+    protected void updateNormalItem(Item item) {
+        item.sellIn = item.sellIn - 1;
+        decreaseQuality(item);
+        if (item.sellIn < 0) {
+            decreaseQuality(item);
+        }
+    }
+
+    protected void updateBackstageItem(Item item) {
+        item.sellIn = item.sellIn - 1;
+        increaseQuality(item);
+        if (item.sellIn < 10) {
+            increaseQuality(item);
+        }
+        if (item.sellIn < 5) {
+            increaseQuality(item);
+        }
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
+    }
+
+    protected void updateAgedBrieItem(Item item) {
+        item.sellIn = item.sellIn - 1;
+        increaseQuality(item);
+        if (item.sellIn < 0) {
+            increaseQuality(item);
         }
     }
 
